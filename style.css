@@ -5,23 +5,29 @@
     font-family:Arial, sans-serif;
 }
 
+html,body{
+    height:100%;
+}
+
 body{
+    display:flex;
+    flex-direction:column;
     background:#f5f5f5;
 }
 
-/* Navbar */
+/* ================= NAVBAR ================= */
 
 nav{
     background:#222;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:15px 40px;
+    padding:20px 60px;
 }
 
 .logo{
-    color:white;
-    font-size:28px;
+    color:#fff;
+    font-size:45px;
     font-weight:bold;
 }
 
@@ -31,25 +37,26 @@ nav ul{
 }
 
 nav ul li{
-    margin-left:20px;
+    margin-left:40px;
 }
 
 nav ul li a{
-    color:white;
+    color:#fff;
     text-decoration:none;
-    font-size:18px;
+    font-size:22px;
+    transition:.3s;
 }
 
 nav ul li a:hover{
     color:#ff9800;
 }
 
-/* Hero Section */
+/* ================= HERO ================= */
 
 .hero{
     height:70vh;
     background:
-    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
     url("https://tse4.mm.bing.net/th/id/OIP.QpYDbgONyPj0hAcVcug1eAHaHa?pid=Api&P=0&h=180");
 
     background-size:cover;
@@ -60,26 +67,33 @@ nav ul li a:hover{
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    color:white;
     text-align:center;
+    color:white;
+    padding:10vw;
 }
 
 .hero h1{
-    font-size:50px;
+    font-size:72px;
+    margin-bottom:15px;
 }
 
 .hero p{
-    font-size:22px;
-    margin:15px 0;
+    font-size:32px;
+    margin-bottom:25px;
 }
 
 .btn{
+    display:inline-block;
     background:white;
     color:black;
-    padding:12px 25px;
     text-decoration:none;
-    border-radius:5px;
-    transition:0.3s;
+    padding:15px 40px;
+    margin:0 auto;
+    border-radius:8px;
+    font-size:22px;
+    font-weight:bold;
+    text-align:center;
+    transition:.3s;
 }
 
 .btn:hover{
@@ -87,73 +101,358 @@ nav ul li a:hover{
     color:white;
 }
 
-/* Page Title */
+/* ================= FEATURED ================= */
 
 .page-title{
     text-align:center;
-    margin:50px 0;
     font-size:50px;
-    font-weight:bold;
+    margin:45px 0;
 }
 
-/* Products */
+.featured{
+    padding:60px 70px;
+}
+
+.featured h2{
+    text-align:center;
+    font-size:50px;
+    margin-bottom:45px;
+}
+
+/* Grid */
 
 .products{
+    max-width:1300px;
+    width:100%;
+    margin:0 auto 60px;
+    padding:0 70px;
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,300px));
-    justify-content:center;
-    gap:30px;
-    padding:20px 50px;
+    grid-template-columns:repeat(3,1fr);
+    gap:35px;
 }
+
+/* Card */
 
 .card{
     background:white;
-    border-radius:10px;
+    border-radius:15px;
     overflow:hidden;
+    box-shadow:0 5px 18px rgba(0,0,0,.15);
+    transition:.3s;
     text-align:center;
-    padding:15px;
-    border:1px solid #ddd;
-    transition:0.3s ease;
 }
 
 .card:hover{
     transform:translateY(-8px);
-    box-shadow:0 8px 20px rgba(0,0,0,0.15);
 }
 
 .card img{
     width:100%;
-    height:320px;
+    height:340px;
     object-fit:cover;
-    border-radius:8px;
 }
 
 .card h3{
-    margin-top:15px;
-    font-size:20px;
+    margin:20px 0 10px;
+    font-size:30px;
 }
 
 .card p{
-    color:#ff6600;
+    color:#ff4d00;
+    font-size:28px;
     font-weight:bold;
-    margin-top:8px;
-    font-size:18px;
+    margin-bottom:20px;
 }
 
-/* About & Contact Pages */
+/* ================= FOOTER ================= */
 
-.content{
-    padding:50px;
+
+footer{
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 6px 0;   /* Footer ki height kam */
+    margin-top: 20px; /* Form aur footer ke beech gap */
+}
+
+footer p{
+    margin: 0;
+    font-size: 18px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:992px){
+
+.products{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.hero h1{
+    font-size:55px;
+}
+
+.hero p{
+    font-size:25px;
+}
+
+}
+
+@media(max-width:768px){
+
+nav{
+    flex-direction:column;
+    padding:20px;
+    margin:15vw;
+}
+
+nav ul{
+    margin-top:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+nav ul li{
+    margin:10px;
+}
+
+.hero{
+    height:60vh;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+.hero p{
+    font-size:20px;
+}
+
+.btn{
+    font-size:18px;
+    padding:12px 30px;
     text-align:center;
-    line-height:1.8;
+}
+
+.products{
+    grid-template-columns:1fr;
+    padding:0 20px;
+}
+
+.featured{
+    padding:40px 20px;
+}
+
+.featured h2{
+    font-size:36px;
+}
+
+.card img{
+    height:300px;
+}
+
+}
+/* ================= ABOUT PAGE ================= */
+
+.about{
+    width: 80%;
+    margin: 70px auto;
+}
+
+.about h1{
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 35px;
+    color: #222;
+}
+
+.about p{
+    font-size: 22px;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.choose-us{
+    margin-top: 50px;
+}
+
+.choose-us h2{
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+.choose-us ul{
+    width: fit-content;
+    margin: 0 auto;
+    padding-left: 20px;
+}
+
+.choose-us ul li{
+    font-size: 22px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.thanks{
+    margin-top: 40px;
+    text-align: center;
+    font-weight: 500;
+}
+footer{
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 6px 0;   /* Footer ki height kam */
+    margin-top: 20px; /* Form aur footer ke beech gap */
+}
+
+footer p{
+    margin: 0;
+    font-size: 18px;
+}
+/* ================= CONTACT PAGE ================= */
+
+.contact-container{
+    width: 90%;
+    max-width: 550px;
+    margin: 40px auto 20px;
+    background: #fff;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.contact-container h1{
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+.form-group{
+    margin-bottom: 20px;
+}
+
+.form-group label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    border-color: #111;
+}
+
+.form-group textarea{
+    height: 130px;
+    resize: vertical;
+}
+
+.contact-container button{
+    width: 100%;
+    padding: 14px;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.contact-container button:hover{
+    background: #333;
+}
+
+.info{
+    text-align: center;
+    margin-top: 20px;
+    line-height: 1.8;
+    color: #555;
 }
 
 /* Footer */
 
-footer{
-    background:#222;
+/* Footer */
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 0px 0;
+  margin-top: 15px;
+}
+
+footer p {
+  margin: 0;
+  padding:0;
+  font-size: 14px;
+}
+/* Hide Checkbox */
+#menu{
+    display:none;
+}
+
+/* Menu Button */
+.menu-btn{
+    font-size:30px;
     color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
+    cursor:pointer;
+    margin-right:20px;
+}
+
+/* Sidebar */
+.sidebar{
+    position:fixed;
+    top:0;
+    left:-250px;
+    width:250px;
+    height:100%;
+    background:#222;
+    transition:0.4s;
+    padding-top:60px;
+    z-index:1000;
+}
+
+/* Open Sidebar */
+#menu:checked ~ .sidebar{
+    left:0;
+}
+
+/* Sidebar Links */
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:15px 25px;
+    font-size:18px;
+}
+
+.sidebar a:hover{
+    background:#444;
+}
+
+/* Close Button */
+.close-btn{
+    position:absolute;
+    top:10px;
+    right:20px;
+    color:white;
+    font-size:35px;
+    cursor:pointer;
 }
